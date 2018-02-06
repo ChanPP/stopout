@@ -29,16 +29,20 @@ class EpisodeData:
         # url_rating = div_list[2].findAll("td")[2].strong.text
         # url_created_date = div_list[2].findAll("td")[3].text
         # print(url_created_data)
+        print(len(div_list))
         result = []
-        for i in range(2, len(div_list)):
+        if len(div_list) == 12:
+            k = 2
+        else:
+            k = 3
+
+        for i in range(k, len(div_list)):
             title = div_list[i].find("td", {"class": "title"}).a.text
             rating = div_list[i].findAll("td")[2].strong.text
             created_date = div_list[i].findAll("td")[3].text
             thumbnail = div_list[i].findAll("td")[0].a.img['src']
             # episode_id = soup.find("div", {"class": "detail"}).h2.text.split()[0]
-            episode_id = thumbnail[32:].split("/")[2]
-            # print(episode_id)
-            # print(title)
+            episode_id = thumbnail[36:].split("/")[2]
             result.append({
                 "title": title,
                 "episode_id": episode_id,
@@ -50,10 +54,12 @@ class EpisodeData:
 
 
 if __name__ == '__main__':
-    # webtoon_id = input("웹툰 아이디를 입력하세요")
-    # page = input("웹툰페이지를 입력하세요")
-    webtoon_id = 119874
-    page = 1
+    webtoon_id = input("웹툰 아이디를 입력하세요")
+    page = input("웹툰페이지를 입력하세요")
+    # webtoon_id = 675331   #13개
+    # webtoon_id = 119874   #12개
+    # webtoon_id = 701081
+    # page = 1
     q = EpisodeData.get_episode_list(webtoon_id, page)
     for i in q:
         print(i)

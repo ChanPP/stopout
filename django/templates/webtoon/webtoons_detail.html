@@ -11,11 +11,11 @@
 {% for episode in episodes %}
 <div>
     <div>
-        {{ episode.episode_id}}
-        {{ episode.rating }}
-        {{ episode.created_date }}
-        {{ episode.title }}
-        <a href="{{ episode.thumbnail }}">episode.title</a>
+        episode_id : ({{ episode.episode_id}})
+        episode_rating : ({{ episode.rating }})
+        episode_created_date : ({{ episode.created_date }})
+        episode_title : ({{ episode.title }})
+        <a href="{{ episode.thumbnail }}">episode.thumbnail</a>
     </div>
 </div>
 {% endfor %}

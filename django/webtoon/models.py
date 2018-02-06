@@ -13,8 +13,8 @@ class Webtoon(models.Model):
         episode_list = crawler.EpisodeData.get_episode_list(self.webtoon_id, 1)
         # print(episode_list)
         for episode in episode_list:
-            # if Episode.objects.filter(episode_id=Episode['episode_id']).exists():
-            #     continue
+            if Episode.objects.filter(episode_id=episode['episode_id']).exists():
+                continue
 
             Episode.objects.create(
                 webtoon=self,
