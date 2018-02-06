@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+{% for webtoon in webtoons %}
+<div>
+    <div><a href="/{{webtoon.id}}">{{ webtoon.title }}</a></div>
+</div>
+{% endfor %}
+
+</body>
+</html>
